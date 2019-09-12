@@ -94,5 +94,6 @@ total = applied_discount.reduce(0) { |acc, (key,value) |
 acc += value[:price] }
 total > 100 ? total * 0.9 : total 
 end
-checkout(cart,coupons
-
+def dummy_function
+  puts "Hello world"
+end
