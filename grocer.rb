@@ -85,15 +85,21 @@ def apply_clearance(cart)
 end
 apply_clearance(consolidated_cart)
 
-def checkout(array,coupons)
-hash_cart = consolidate_cart(array)
+def checkout(cart,coupons)
+hash_cart = consolidate_cart(cart)
 applied_coupons = apply_coupons(hash_cart, 
 coupons)
 applied_discount = apply_clearance(applied_coupons)
+
 total = applied_discount.reduce(0) { |acc, (key,value) | 
-acc += value[:price] }
-total > 100 ? total * 0.9 : total 
+
+acc += value[:price] *value[:count]} 
+
+if total > 100  
+discount = total * 0.10
+return total - discount
+else
+  return total
+  end
 end
-def dummy_function
-  puts "Hello world"
-end
+checkout(cart,coupons)
