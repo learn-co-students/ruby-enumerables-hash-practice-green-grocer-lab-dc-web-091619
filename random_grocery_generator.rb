@@ -54,4 +54,8 @@ coupons.each do |coupon|
 	puts "Get #{coupon[:item].capitalize} for #{coupon[:cost]} when you by #{coupon[:num]}"
 end
 
+def checkout(cart, coupons)
+  
+end
+
 puts "Your total is #{checkout(cart: cart, coupons: coupons)}"
